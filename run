@@ -1,1 +1,1 @@
-ansible-playbook ubuntu.yml --ask-vault-pass -t dotfiles
+ansible-playbook ubuntu.yml --ask-vault-pass
