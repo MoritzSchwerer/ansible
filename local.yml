@@ -17,6 +17,7 @@
     - include: tasks/git-setup.yml
     - include: tasks/core.yml
     - include: tasks/utils.yml
+    - include: tasks/brave.yml
     - include: tasks/nvim-setup.yml
     - include: tasks/zsh-setup.yml
     - include: tasks/dotfiles.yml
