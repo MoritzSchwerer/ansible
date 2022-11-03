@@ -4,11 +4,11 @@
     scope: global
     value: "moritz.schwerer@gmx.de"
   tags:
-  - git-personal
+  - git
 - name: Git personal setup name
   git_config:
     name: user.name
     scope: global
     value: "MoritzSchwerer"
   tags:
-  - git-personal
+  - git

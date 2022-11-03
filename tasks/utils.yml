@@ -1,4 +1,4 @@
-- name: Install util packages
+- name: Install util packages (nvim, tmux, fzf, rg, tree, ranger)
   become: true 
   apt:
     name:
@@ -8,3 +8,5 @@
       - ripgrep
       - tree
       - ranger
+    tags: 
+      - install 

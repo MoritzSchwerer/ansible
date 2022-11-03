@@ -1,1 +1,1 @@
-ansible-playbook ubuntu.yml --ask-vault-pass
+ansible-playbook local.yml --ask-vault-pass

@@ -1,0 +1,19 @@
+- name: Install pass
+  become: true
+  apt:
+    name: pass
+  tags:
+    - install
+    - pass
+
+- name: Cloning password store
+  ansible.builtin.git:
+    repo: git@github.com:MoritzSchwerer/pass.git
+    dest: "{{ lookup('env', 'HOME') }}/.password-store"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    key_file: /home/moritz/.ssh/id_rsa
+  tags:
+    - install
+    - pass

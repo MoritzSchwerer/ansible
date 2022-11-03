@@ -7,6 +7,7 @@
     - dotfiles
     - install
     - ssh
+    - pass
 - name: Install ssh key
   copy:
     src: "{{ ssh_source }}"
@@ -16,6 +17,7 @@
     - dotfiles
     - install
     - ssh
+    - pass
 - name: Install ssh key public
   copy:
     src: "{{ ssh_source }}.pub"
@@ -25,6 +27,7 @@
     - dotfiles
     - install
     - ssh
+    - pass
 #- name: Set authorized key took from file
   #authorized_key:
 #user: "{{ lookup('env', 'USER') }}"
