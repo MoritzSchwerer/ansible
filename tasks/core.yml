@@ -1,0 +1,30 @@
+- name: Install System Packages 1 (build-essential, cmake, pkg-config, pthread)
+  become: true
+  apt:
+    name: ["build-essential", "cmake", "pkg-config", "libpthread-stubs0-dev"]
+  tags:
+    - install
+    - neovim
+    - core
+
+- name: Install System Packages 2 (unzip, libtool, libtool-bin, gettext)
+  become: true
+  apt:
+    name: [ "unzip", "libtool", "libtool-bin", "gettext"]
+  tags:
+    - install
+    - neovim
+    - core
+
+- name: Add i3-gaps ppa
+  become: true
+  ansible.builtin.apt_repository:
+    repo: ppa:regolith-linux/stable
+
+- name: Install System Packages 3 (compton, i3, pip, pavu, ...)
+  become: true
+  apt:
+    name: [ "compton", "curl", "htop", "i3-gaps", "ccache", "ninja-build", "python3-pip", "nvidia-settings", "pavucontrol", "moreutils", "clangd" ]
+  tags:
+    - install
+    - core

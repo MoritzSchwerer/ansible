@@ -1,0 +1,22 @@
+- hosts: localhost 
+  vars:
+    ssh_source: ".ssh/id_rsa"
+    ssh_dest: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+  pre_tasks: 
+    - name: Update apt
+      become: true
+      apt:  
+        update_cache: true
+        state: present
+      tags:
+        - install
+        - core 
+
+  tasks: 
+    - include: tasks/ssh.yml
+    - include: tasks/git-setup.yml
+    - include: tasks/core.yml
+    - include: tasks/utils.yml
+    - include: tasks/nvim-setup.yml
+    - include: tasks/zsh-setup.yml
+    - include: tasks/dotfiles.yml

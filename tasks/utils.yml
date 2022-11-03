@@ -1,0 +1,10 @@
+- name: Install util packages
+  become: true 
+  apt:
+    name:
+      - neovim
+      - tmux
+      - fzf
+      - ripgrep
+      - tree
+      - ranger
