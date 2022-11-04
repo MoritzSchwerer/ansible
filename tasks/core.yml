@@ -20,6 +20,10 @@
   become: true
   ansible.builtin.apt_repository:
     repo: ppa:regolith-linux/stable
+  tags:
+    - install
+    - core
+    - i3
 
 - name: Install System Packages 3 (compton, htop, i3-gaps, pip, ...)
   become: true
@@ -28,3 +32,4 @@
   tags:
     - install
     - core
+    - i3

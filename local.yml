@@ -22,3 +22,4 @@
     - include: tasks/zsh-setup.yml
     - include: tasks/dotfiles.yml
     - include: tasks/pass.yml
+    - unclude: tasks/alacritty.yml

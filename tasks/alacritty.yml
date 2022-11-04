@@ -1,0 +1,15 @@
+- name: Add alacritty ppa
+  become: true
+  ansible.builtin.apt_repository:
+    repo: ppa:aslatter/ppa
+  tags:
+    - install
+    - alacritty
+
+- name: Install alacritty form PPA
+  become: true
+  apt:
+    name: alacritty
+  tags:
+    - install
+    - alacritty
