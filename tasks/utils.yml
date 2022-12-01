@@ -8,5 +8,5 @@
       - ripgrep
       - tree
       - ranger
-    tags: 
-      - install 
+  tags: 
+    - install 

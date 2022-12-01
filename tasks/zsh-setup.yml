@@ -36,6 +36,6 @@
 
 - name: Install zsh-substring-search
   ansible.builtin.git:
-    repo: 'https://github.com/zsh-users/zsh-substring-search.git'
-    dest: "~/.config/oh-my-zsh/plugins/zsh-substring-search"
+    repo: https://github.com/zsh-users/zsh-history-substring-search.git
+    dest: "~/.config/oh-my-zsh/plugins/zsh-history-substring-search"
   tags: *tags_for_zsh_tasks
