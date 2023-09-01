@@ -3,33 +3,36 @@
   tags:
     - install
     - neovim
-- name: Get Packer
-  ansible.builtin.git:
-    repo: 'https://github.com/wbthomason/packer.nvim'
-    dest: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
-  tags:
-    - install
-    - neovim
 - name: Clone Neovim
   ansible.builtin.git:
     repo: 'https://github.com/neovim/neovim.git'
-    dest: "{{ lookup('env', 'HOME') }}/neovim"
+    dest: "/tmp/neovim"
   tags:
     - install
     - neovim
 - name: Build neovim
-  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make CMAKE_BULID_TYPE=RelWithDebInfo"
+  shell: "cd /tmp/neovim && make CMAKE_BULID_TYPE=RelWithDebInfo"
   tags:
     - install
     - neovim
 - name: Install neovim
   become: true
-  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make install"
+  shell: "cd /tmp/neovim && make install"
   tags:
     - install
     - neovim
-- name: Remove neovim post install
-  shell: rm -rf ~/neovim
+
+- name: Clone committer
+  ansible.builtin.git:
+    repo: 'https://github.com/2kabhishek/committer.git'
+    dest: "/tmp/committer"
   tags:
-    - install
     - neovim
+    - install
+
+- name: Install committer
+  shell: "cd /tmp/committer && cp committer.sh {{ lookup('env', 'HOME') }}/.local/bin/committer"
+  tags:
+    - neovim
+    - install
+

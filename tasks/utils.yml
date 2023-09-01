@@ -1,12 +1,20 @@
-- name: Install util packages (nvim, tmux, fzf, rg, tree, ranger)
+- name: Install util packages (tmux, fzf, rg, tree, exa)
   become: true 
   apt:
     name:
-      - neovim
       - tmux
       - fzf
       - ripgrep
       - tree
-      - ranger
+      - exa
+
   tags: 
     - install 
+
+- name: Dev tools
+  become: true
+  apt:
+    name: 
+      - python3-pip
+      - cargo
+  tags: install

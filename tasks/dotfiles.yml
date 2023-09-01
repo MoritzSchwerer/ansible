@@ -21,7 +21,7 @@
     - stow
 
 - name: Stow dotfiles
-  shell: cd $HOME/Dotfiles && ./ubuntu
+  shell: cd $HOME/Dotfiles && ./desktop
   tags:
     - install
     - dotfiles

@@ -1,6 +1,9 @@
 FROM ubuntu:focal AS base
+
 WORKDIR /usr/local/bin
+
 ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y software-properties-common curl git build-essential sudo && \
@@ -11,6 +14,7 @@ RUN apt-get update && \
     apt-get autoremove --yes
 
 FROM base AS prime
+
 ARG TAGS
 RUN adduser --disabled-password --gecos '' moritz
 RUN adduser moritz sudo
@@ -22,4 +26,4 @@ WORKDIR /home/moritz
 FROM prime
 COPY --chown=moritz . .
 RUN chmod u+rw -R /home/moritz/.ssh
-CMD ["sh", "-c", "ansible-playbook $TAGS ubuntu.yml"]
+# CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]
